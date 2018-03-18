@@ -1,3 +1,9 @@
+references
+
+https://github.com/ipfs/js-ipfs-api/tree/master/examples/bundle-browserify
+
+---
+
 $ ipfs init
 initializing IPFS node at /home/janarthan/.ipfs
 generating 2048-bit RSA keypair...done

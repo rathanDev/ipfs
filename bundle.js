@@ -1,13 +1,13 @@
 (function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(require,module,exports){
 (function (Buffer){
-'use strict'
+'use strict';
 
-var IPFS = require('ipfs-api')
+var IPFS = require('ipfs-api');
 
-var ipfs = IPFS()
+var ipfs = IPFS();
 
 function store () {
-    var toStore = document.getElementById('source').value
+    var toStore = document.getElementById('source').value;
     ipfs.add(Buffer.from(toStore), function (err, res) {
         if (err || !res) {
             return console.error('ipfs add error', err, res)
@@ -34,9 +34,43 @@ function display (hash) {
     })
 }
 
+function upload() {
+    console.log("Upload");
+    var file = document.getElementById('inputId').value;
+    console.log("file")
+    console.log(file)
+
+    // const buf = buffer.Buffer(file)
+    // console.log("buf")
+    // console.log(buf)
+
+    const reader = new FileReader();
+    reader.onloadend = function() {
+        // const ipfs = window.IpfsApi('localhost', 5001) // Connect to IPFS
+        const buf = buffer.Buffer(reader.result) // Convert data into buffer
+        console.log("buf")
+        console.log(buf)
+
+        ipfs.add(buf, function (err, res) {
+            if (err || !res) {
+                return console.error('ipfs add error', err, res)
+            }
+
+            res.forEach(function (file) {
+                if (file && file.hash) {
+                    console.log('successfully stored', file.hash)
+                    display(file.hash)
+                }
+            })
+        })
+    }
+
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('store').onclick = store
-})
+    document.getElementById('store').onclick = store;
+    document.getElementById('uploadButtonId').onclick = upload;
+});
 }).call(this,require("buffer").Buffer)
 },{"buffer":46,"ipfs-api":145}],2:[function(require,module,exports){
 var asn1 = exports;
