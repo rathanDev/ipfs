@@ -67,11 +67,19 @@ janarthan@janarthan1:~/practice/ipfs$ ipfs swarm peers
 /ip4/178.62.158.247/tcp/4001/ipfs/QmSoLer265NRgSp2LA3dPaeykiS1J6DifTC88f5uVQKNAd
 
 
+janarthan@janarthan1:~/practice/ipfs$ ipfs add -r pics/
+added QmTbHpFrjMdGPDJvTPmL5XTeELKNkzHjQPKb7Tsk2uWrN4 pics/goldenRetriever.jpg
+added QmSeXPiJbmTH9DmpSKw7hRDWkXZ4WKpUi5Tt8GgHA4ZPay pics
 
 
+http://localhost:8080/ipfs/QmTbHpFrjMdGPDJvTPmL5XTeELKNkzHjQPKb7Tsk2uWrN4
+
+https://gateway.ipfs.io/ipfs/QmTbHpFrjMdGPDJvTPmL5XTeELKNkzHjQPKb7Tsk2uWrN4
 
 
-
-
+---
+webUi
+-----
+http://localhost:5001/ipfs/QmPhnvn747LqwPYMJmQVorMaGbMSgA7mRRoyyZYz3DoZRQ/#/
 
 
